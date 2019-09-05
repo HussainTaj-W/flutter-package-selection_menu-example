@@ -1,7 +1,7 @@
 # Examples
 
 **There is a series of detailed/brief examples available 
-[here](https://github.com/HussainTaj-W/flutter-package-selection_menu-example/tree/master/example/lib)**.
+[here](https://github.com/HussainTaj-W/flutter-package-selection_menu-example/tree/master/lib)**.
 
 These examples only focus on explaining code related to [selection_menu](https://github.com/HussainTaj-W/flutter-package-selection_menu). 
 Flutter Widgets and their usage will not be explained here.
