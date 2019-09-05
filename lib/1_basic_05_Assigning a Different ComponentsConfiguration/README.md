@@ -1,8 +1,6 @@
 # Using Different ComponentsConfigurations
 *Example: 1_basic_05*
 
-<!-- TODO add reference to docs -->
-
 ## Code Highlights
 
 ```dart
@@ -23,3 +21,8 @@ For complete code, explained with details, see [main.dart](./main.dart).
 
 ![Result Gif](./1_05.gif)
 
+[API Docs: DialogComponentsConfiguration](https://pub.dev/documentation/selection_menu/latest/components_configurations/DialogComponentsConfiguration-class.html)
+
+[API Docs: DropdownComponentsConfiguration](https://pub.dev/documentation/selection_menu/latest/components_configurations/DropdownComponentsConfiguration-class.html)
+
+[API Docs: ComponentsConfigurations Library](https://pub.dev/documentation/selection_menu/latest/components_configurations/components_configurations-library.html)

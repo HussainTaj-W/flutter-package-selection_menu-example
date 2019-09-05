@@ -1,8 +1,6 @@
 # Menu Flex Values
 *Example: 1_basic_06*
 
-<!-- TODO add reference to docs -->
-
 ## Code Highlights
 
 ```dart
@@ -33,3 +31,4 @@ For complete code, explained with details, see [main.dart](./main.dart).
 
 ![Result Gif](./1_06.gif)
 
+[API Docs: MenuFlexValues](https://pub.dev/documentation/selection_menu/latest/components_configurations/MenuFlexValues-class.html)

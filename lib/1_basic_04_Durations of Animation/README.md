@@ -45,3 +45,6 @@ For complete code, explained with details, see [main.dart](./main.dart).
 
 ![Result Gif](./1_04.gif)
 
+[API Docs: MenuAnimationDurations](https://pub.dev/documentation/selection_menu/latest/components_configurations/MenuAnimationDurations-class.html)
+
+[API Docs: MenuAnimationCurves](https://pub.dev/documentation/selection_menu/latest/components_configurations/MenuAnimationCurves-class.html)

@@ -1,8 +1,6 @@
 # SearchField, SearchingIndicator, and SearchBar Components
 *Example: 2_intermediate_02*
 
-<!-- TODO add reference to docs -->
-
 ![Components Image](../data/selection_menu%20anatomy%20components.jpg)
 
 ## Code Highlights
@@ -40,3 +38,9 @@ For complete code, explained with details, see [main.dart](./main.dart).
 ## Result
 
 ![Result Gif](./2_02.gif)
+
+[API Docs: SearchFieldComponent](https://pub.dev/documentation/selection_menu/latest/components_configurations/SearchFieldComponent-class.html)
+
+[API Docs: SearchingIndicatorComponent](https://pub.dev/documentation/selection_menu/latest/components_configurations/SearchingIndicatorComponent-class.html)
+
+[API Docs: SearchBarComponent](https://pub.dev/documentation/selection_menu/latest/components_configurations/SearchBarComponent-class.html)

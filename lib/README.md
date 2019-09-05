@@ -11,4 +11,5 @@ The code files themselves have extensive comments that explain the
 concepts.
 
 If at any moment something is not clear, please refer to the API 
-documentation available [here](TODO).
+documentation available 
+[here](https://pub.dev/documentation/selection_menu/latest/).

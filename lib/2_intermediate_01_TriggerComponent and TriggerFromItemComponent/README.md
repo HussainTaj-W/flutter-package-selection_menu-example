@@ -1,8 +1,6 @@
 # TriggerComponent and TriggerFromItemComponent
 *Example: 2_intermediate_01*
 
-<!-- TODO add reference to docs -->
-
 ![Components Image](../data/selection_menu%20anatomy%20components.jpg)
 
 ## Code Highlights
@@ -46,3 +44,8 @@ For complete code, explained with details, see [main.dart](./main.dart).
 ## Result
 
 ![Result Gif](./2_01.gif)
+
+
+[API Docs: TriggerComponent](https://pub.dev/documentation/selection_menu/latest/components_configurations/TriggerComponent-class.html)
+
+[API Docs: TriggerFromItemComponent](https://pub.dev/documentation/selection_menu/latest/components_configurations/TriggerFromItemComponent-class.html)

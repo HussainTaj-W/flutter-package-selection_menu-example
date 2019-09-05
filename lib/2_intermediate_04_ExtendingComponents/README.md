@@ -1,8 +1,6 @@
 # Extending Components
 *Example: 2_intermediate_04*
 
-<!-- TODO add reference to docs -->
-
 ![Components Image](../data/selection_menu%20anatomy%20components.jpg)
 
 ## Code Highlights
@@ -55,3 +53,5 @@ For complete code, explained with details, see [main.dart](./main.dart).
 ## Result
 
 ![Result Gif](./2_04.gif)
+
+[API Docs: ComponentsConfigurations Library](https://pub.dev/documentation/selection_menu/latest/components_configurations/components_configurations-library.html)

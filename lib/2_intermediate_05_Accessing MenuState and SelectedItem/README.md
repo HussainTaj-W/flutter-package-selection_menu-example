@@ -1,8 +1,6 @@
 # Accessing MenuState and Selected Item
 *Example: 2_intermediate_05*
 
-<!-- TODO add reference to docs -->
-
 ![Components Image](../data/selection_menu%20anatomy%20components.jpg)
 
 ## Code Highlights
@@ -32,3 +30,5 @@ For complete code, explained with details, see [main.dart](./main.dart).
 ## Result
 
 ![Result Gif](./2_05.gif)
+
+[API Docs: MenuState](https://pub.dev/documentation/selection_menu/latest/components_configurations/MenuState-class.html)

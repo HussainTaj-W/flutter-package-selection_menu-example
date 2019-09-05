@@ -90,3 +90,5 @@ For complete code, explained with details, see [main.dart](./main.dart).
 ## Result
 
 ![Result Gif](./3_02.gif)
+
+[API Docs: ComponentsConfiguration](https://pub.dev/documentation/selection_menu/latest/components_configurations/ComponentsConfiguration-class.html)

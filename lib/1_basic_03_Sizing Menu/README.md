@@ -31,7 +31,7 @@ SelectionMenu<FlatColor>(
       minHeight: 200,
       
       // There are many other important properties, see the main.dart
-      // file or TODO: API Reference
+      // file or the API docs.
     ),
     //Other properties...
   );
@@ -42,3 +42,4 @@ For complete code, explained with details, see [main.dart](./main.dart).
 
 ![Result Gif](./1_03.gif)
 
+[API Docs: MenuSizeConfiguration](https://pub.dev/documentation/selection_menu/latest/components_configurations/MenuSizeConfiguration-class.html)

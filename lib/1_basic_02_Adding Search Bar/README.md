@@ -28,3 +28,4 @@ For complete code, explained with details, see [main.dart](./main.dart).
 
 ![Result Gif](./1_02.gif)
 
+[API Docs: SelectionMenu](https://pub.dev/documentation/selection_menu/latest/selection_menu/SelectionMenu-class.html)

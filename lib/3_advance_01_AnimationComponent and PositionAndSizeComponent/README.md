@@ -1,8 +1,6 @@
 # AnimationComponent and MenuPositionAndSizeComponent
 *Example: 3_advance_01*
 
-<!-- TODO add reference to docs -->
-
 ![Components Image](../data/selection_menu%20anatomy%20components.jpg)
 
 ## Code Highlights
@@ -140,3 +138,7 @@ For complete code, explained with details, see [main.dart](./main.dart).
 ## Result
 
 ![Result Gif](./3_01.gif)
+
+[API Docs: AnimationComponent](https://pub.dev/documentation/selection_menu/latest/components_configurations/AnimationComponent-class.html)
+
+[API Docs: MenuPositionAndSizeComponent](https://pub.dev/documentation/selection_menu/latest/components_configurations/MenuPositionAndSizeComponent-class.html)

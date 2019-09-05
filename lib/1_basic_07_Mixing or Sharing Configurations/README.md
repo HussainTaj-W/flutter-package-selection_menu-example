@@ -1,8 +1,6 @@
 # Mixing or Sharing Configurations
 *Example: 1_basic_07*
 
-<!-- TODO add reference to docs -->
-
 ## Code Highlights
 
 ```dart
@@ -33,3 +31,4 @@ For complete code, explained with details, see [main.dart](./main.dart).
 
 ![Result Gif](./1_07.gif)
 
+[API Docs: ComponentsConfigurations Library](https://pub.dev/documentation/selection_menu/latest/components_configurations/components_configurations-library.html)

@@ -84,10 +84,10 @@ packages:
   selection_menu:
     dependency: "direct main"
     description:
-      path: ".."
-      relative: true
-    source: path
-    version: "0.8.0"
+      name: selection_menu
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.8.1"
   sky_engine:
     dependency: transitive
     description: flutter

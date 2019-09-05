@@ -3,6 +3,9 @@
 **There is a series of detailed/brief examples available 
 [here](https://github.com/HussainTaj-W/flutter-package-selection_menu-example/tree/master/lib)**.
 
+[The API documentation](https://pub.dev/documentation/selection_menu/latest/)
+explains classes and their uses with sample code.
+
 These examples only focus on explaining code related to [selection_menu](https://github.com/HussainTaj-W/flutter-package-selection_menu). 
 Flutter Widgets and their usage will not be explained here.
 
