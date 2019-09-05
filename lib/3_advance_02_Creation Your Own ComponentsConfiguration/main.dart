@@ -1,8 +1,9 @@
-import 'package:example/3_advance_02_Creation%20Your%20Own%20ComponentsConfiguration/circular_window_components_configuration.dart';
-import 'package:example/data/FlatColor.dart';
 import 'package:flutter/material.dart';
 import 'package:selection_menu/components_configurations.dart';
 import 'package:selection_menu/selection_menu.dart';
+
+import '../data/FlatColor.dart';
+import 'circular_window_components_configuration.dart';
 
 // Reading previous Examples before this one is recommended.
 //

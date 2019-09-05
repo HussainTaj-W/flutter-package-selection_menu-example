@@ -1,8 +1,9 @@
-import 'package:example/data/FlatColor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:selection_menu/components_configurations.dart';
 import 'package:selection_menu/selection_menu.dart';
+
+import '../data/FlatColor.dart';
 
 // Reading previous Examples before this one is recommended.
 //
