@@ -21,7 +21,6 @@ SelectionMenu<FlatColor>(
       // Much like how SearchBar combines SearchField and Searching 
       // Indicator.
     ),
-    // TODO API Ref
   );
 
 
