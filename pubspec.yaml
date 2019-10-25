@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  selection_menu: ^0.8.1
+  selection_menu: ^0.9.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

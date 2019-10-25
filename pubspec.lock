@@ -84,9 +84,9 @@ packages:
   selection_menu:
     dependency: "direct main"
     description:
-      name: selection_menu
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "..\\selection_menu"
+      relative: true
+    source: path
     version: "0.8.1"
   sky_engine:
     dependency: transitive
