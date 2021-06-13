@@ -40,7 +40,7 @@ class ExampleApp extends StatelessWidget {
       width: this.navButtonSize,
       child: RaisedButton(
         onPressed: data.triggerMenu,
-        color: Color(data.item.hex),
+        color: Color(data.item.hex!),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(navButtonSize / 2),
         ),
@@ -55,7 +55,7 @@ class ExampleApp extends StatelessWidget {
 
   Widget itemBuilder(
       BuildContext context, FlatColor color, OnItemTapped onItemTapped) {
-    TextStyle textStyle = Theme.of(context).textTheme.display1;
+    TextStyle textStyle = Theme.of(context).textTheme.display1!;
 
     return Container(
       constraints: BoxConstraints.tight(Size(itemSize, itemSize)),
@@ -64,7 +64,7 @@ class ExampleApp extends StatelessWidget {
         alignment: Alignment.center,
         children: <Widget>[
           Material(
-            color: Color(color.hex),
+            color: Color(color.hex!),
             child: InkWell(
               onTap: onItemTapped,
             ),
@@ -75,7 +75,7 @@ class ExampleApp extends StatelessWidget {
               onItemTapped();
             },
             child: Text(
-              color.name,
+              color.name!,
               style: textStyle.copyWith(
                 color: Colors.white,
               ),
@@ -89,7 +89,7 @@ class ExampleApp extends StatelessWidget {
   //region From Previous Example
 
   bool itemSearchMatcher(String searchString, FlatColor color) {
-    return color.name.toLowerCase().contains(searchString.trim().toLowerCase());
+    return color.name!.toLowerCase().contains(searchString.trim().toLowerCase());
   }
 
   void onItemSelected(FlatColor color) {

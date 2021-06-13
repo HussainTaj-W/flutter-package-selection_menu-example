@@ -42,7 +42,7 @@ class ExampleApp extends StatelessWidget {
   }
 
   static Widget _menuBuilder(MenuComponentData data) {
-    FlatColor selectedItem = data.selectedItem as FlatColor;
+    FlatColor? selectedItem = data.selectedItem as FlatColor?;
 
     Widget currentItem = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +51,7 @@ class ExampleApp extends StatelessWidget {
       children: <Widget>[
         Text(
           "Currently Selected: ",
-          style: Theme.of(data.context).textTheme.body1.copyWith(fontSize: 10),
+          style: Theme.of(data.context).textTheme.body1!.copyWith(fontSize: 10),
         ),
         ClipOval(
             child: SizedBox(
@@ -68,13 +68,13 @@ class ExampleApp extends StatelessWidget {
         data.isSearchEnabled
             ? Flexible(
                 child: data.searchBar,
-                flex: data.menuFlexValues.searchBar,
+                flex: data.menuFlexValues.searchBar!,
               )
             : Container(),
         currentItem,
         Expanded(
           child: data.listView,
-          flex: data.menuFlexValues.listView,
+          flex: data.menuFlexValues.listView!,
         ),
       ],
     );
@@ -106,13 +106,13 @@ class ExampleApp extends StatelessWidget {
 
   Widget itemBuilder(
       BuildContext context, FlatColor color, OnItemTapped onItemTapped) {
-    TextStyle textStyle = Theme.of(context).textTheme.title;
+    TextStyle textStyle = Theme.of(context).textTheme.title!;
 
     return Container(
       child: InkWell(
         onTap: onItemTapped,
-        highlightColor: Color(color.hex).withAlpha(100),
-        splashColor: Color(color.hex),
+        highlightColor: Color(color.hex!).withAlpha(100),
+        splashColor: Color(color.hex!),
         child: Container(
           padding: EdgeInsets.all(10.0),
           child: Row(
@@ -121,7 +121,7 @@ class ExampleApp extends StatelessWidget {
             children: <Widget>[
               ClipOval(
                 child: Container(
-                  color: Color(color.hex),
+                  color: Color(color.hex!),
                   height: 30,
                   width: 30,
                 ),
@@ -131,16 +131,16 @@ class ExampleApp extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.0),
                   child: Text(
-                    color.name,
+                    color.name!,
                     style: textStyle,
                   ),
                 ),
               ),
               Text(
-                ('#' + color.hex.toRadixString(16)).toUpperCase(),
+                ('#' + color.hex!.toRadixString(16)).toUpperCase(),
                 style: textStyle.copyWith(
                   color: Colors.grey.shade600,
-                  fontSize: textStyle.fontSize * 0.75,
+                  fontSize: textStyle.fontSize! * 0.75,
                 ),
               ),
             ],
@@ -151,7 +151,7 @@ class ExampleApp extends StatelessWidget {
   }
 
   bool itemSearchMatcher(String searchString, FlatColor color) {
-    return color.name.toLowerCase().contains(searchString.trim().toLowerCase());
+    return color.name!.toLowerCase().contains(searchString.trim().toLowerCase());
   }
 
   void onItemSelected(FlatColor color) {

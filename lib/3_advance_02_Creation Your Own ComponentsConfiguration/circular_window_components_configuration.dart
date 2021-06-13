@@ -19,21 +19,21 @@ class CircularWindowComponentsConfiguration<T>
     this.navigationButtonSize = 40,
     this.itemSize = 100,
     //
-    SearchFieldComponent searchFieldComponent,
-    TriggerComponent triggerComponent,
-    MenuComponent menuComponent,
-    MenuPositionAndSizeComponent menuPositionAndSizeComponent,
-    SearchingIndicatorComponent searchingIndicatorComponent,
-    AnimationComponent animationComponent,
-    ListViewComponent listViewComponent,
-    SearchBarComponent searchBarComponent,
+    SearchFieldComponent? searchFieldComponent,
+    TriggerComponent? triggerComponent,
+    MenuComponent? menuComponent,
+    MenuPositionAndSizeComponent? menuPositionAndSizeComponent,
+    SearchingIndicatorComponent? searchingIndicatorComponent,
+    AnimationComponent? animationComponent,
+    ListViewComponent? listViewComponent,
+    SearchBarComponent? searchBarComponent,
     //
-    TriggerFromItemComponent<T> triggerFromItemComponent,
+    TriggerFromItemComponent<T>? triggerFromItemComponent,
     //
-    MenuFlexValues menuFlexValues,
-    MenuSizeConfiguration menuSizeConfiguration,
-    MenuAnimationDurations menuAnimationDurations,
-    MenuAnimationCurves menuAnimationCurves,
+    MenuFlexValues? menuFlexValues,
+    MenuSizeConfiguration? menuSizeConfiguration,
+    MenuAnimationDurations? menuAnimationDurations,
+    MenuAnimationCurves? menuAnimationCurves,
     //
   }) : super(
           searchFieldComponent:
@@ -116,7 +116,7 @@ class CircularWindowSearchFieldComponent extends SearchFieldComponent {
       expands: false,
       maxLines: 1,
       textAlignVertical: TextAlignVertical.bottom,
-      style: Theme.of(data.context).textTheme.body1.copyWith(),
+      style: Theme.of(data.context).textTheme.body1!.copyWith(),
       decoration: InputDecoration(
         border: InputBorder.none,
         hintText: "Search...",
@@ -135,7 +135,7 @@ class CircularWindowSearchingIndicatorComponent
 
   Widget _builder(SearchingIndicatorComponentData data) {
     double size = Theme.of(data.context).iconTheme.size ??
-        Theme.of(data.context).textTheme.body1.fontSize ??
+        Theme.of(data.context).textTheme.body1!.fontSize ??
         15;
     return Center(
       child: SizedBox(
@@ -168,15 +168,15 @@ class CircularWindowSearchBarComponent extends SearchBarComponent {
     ));
 
     rowChildren.add(Flexible(
-      flex: data.menuFlexValues.searchField,
+      flex: data.menuFlexValues.searchField!,
       child: data.searchField,
     ));
 
     rowChildren.add(Flexible(
-      flex: data.menuFlexValues.searchingIndicator,
+      flex: data.menuFlexValues.searchingIndicator!,
       child: Opacity(
         child: data.searchingIndicator,
-        opacity: data.isSearching ? 1 : 0,
+        opacity: data.isSearching! ? 1 : 0,
       ),
     ));
     return Center(
@@ -211,8 +211,8 @@ class CircularWindowListViewComponent extends ListViewComponent {
   int _currentIndex = 0;
 
   CircularWindowListViewComponent({
-    @required this.itemSize,
-    @required this.navigationButtonSize,
+    required this.itemSize,
+    required this.navigationButtonSize,
   }) : assert(itemSize != null, "Size should be provided.") {
     super.builder = _builder;
     _scrollController.addListener(() {
@@ -338,9 +338,9 @@ class CircularWindowAnimationComponent extends AnimationComponent
     super.builder = _builder;
   }
 
-  AnimationController _animationController;
-  Animation _animation;
-  MenuState _lastState;
+  AnimationController? _animationController;
+  late Animation _animation;
+  MenuState? _lastState;
 
   Widget _builder(AnimationComponentData data) {
     if (_animationController == null) {
@@ -350,7 +350,7 @@ class CircularWindowAnimationComponent extends AnimationComponent
           reverseDuration: data.menuAnimationDurations.reverse);
 
       _animation = CurvedAnimation(
-        parent: _animationController,
+        parent: _animationController!,
         curve: Curves.elasticOut,
       );
 
@@ -370,7 +370,7 @@ class CircularWindowAnimationComponent extends AnimationComponent
       case MenuState.OpeningStart:
         break;
       case MenuState.OpeningEnd:
-        _animationController.forward();
+        _animationController!.forward();
         _lastState = data.menuState;
         break;
       case MenuState.Opened:
@@ -378,10 +378,12 @@ class CircularWindowAnimationComponent extends AnimationComponent
       case MenuState.ClosingStart:
         break;
       case MenuState.ClosingEnd:
-        _animationController.reverse();
+        _animationController!.reverse();
         _lastState = data.menuState;
         break;
       case MenuState.Closed:
+        break;
+      default:
         break;
     }
 
@@ -391,11 +393,11 @@ class CircularWindowAnimationComponent extends AnimationComponent
         child: data.child,
         constraints: data.constraints,
       ),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Transform.rotate(
           angle: 6.14 - 6.14 * _animation.value,
           child: Transform.scale(
-            scale: 1 * _animation.value,
+            scale: 1 * _animation.value as double,
             child: child,
           ),
         );
@@ -406,7 +408,7 @@ class CircularWindowAnimationComponent extends AnimationComponent
   @override
   void dispose() {
     if (_animationController != null) {
-      _animationController.dispose();
+      _animationController!.dispose();
       _animationController = null;
     }
   }
@@ -425,14 +427,14 @@ class CircularWindowMenuPositionAndSizeComponent
   }
 
   MenuPositionAndSize _builder(MenuPositionAndSizeComponentData data) {
-    double menuMidY = data.constraints.biggest.height / 2;
-    double menuMidX = data.constraints.biggest.width / 2;
+    double menuMidY = data.constraints!.biggest.height / 2;
+    double menuMidX = data.constraints!.biggest.width / 2;
 
-    double offsetY = -menuMidY + data.triggerPositionAndSize.size.height / 2;
-    double offsetX = -menuMidX + data.triggerPositionAndSize.size.width / 2;
+    double offsetY = -menuMidY + data.triggerPositionAndSize!.size.height / 2;
+    double offsetX = -menuMidX + data.triggerPositionAndSize!.size.width / 2;
 
     return MenuPositionAndSize(
-      constraints: BoxConstraints.tight(data.constraints.biggest),
+      constraints: BoxConstraints.tight(data.constraints!.biggest),
       positionOffset: Offset(offsetX, offsetY),
     );
   }
@@ -440,7 +442,7 @@ class CircularWindowMenuPositionAndSizeComponent
 
 /// A [TriggerComponent] used by [CircularWindowComponentsConfiguration].
 class CircularWindowTriggerComponent extends TriggerComponent {
-  CircularWindowTriggerComponent({@required this.size})
+  CircularWindowTriggerComponent({required this.size})
       : assert(size != null, "Size should be provided.") {
     super.builder = _builder;
   }

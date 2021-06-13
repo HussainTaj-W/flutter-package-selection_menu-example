@@ -1,6 +1,6 @@
 class FlatColor {
-  final String name;
-  final int hex;
+  final String? name;
+  final int? hex;
 
   FlatColor({this.name, this.hex});
 }

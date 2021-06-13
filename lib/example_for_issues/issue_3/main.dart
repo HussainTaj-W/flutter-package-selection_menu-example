@@ -6,8 +6,8 @@ import 'package:selection_menu/selection_menu.dart';
 /// (Issue Link)[https://github.com/HussainTaj-W/flutter-package-selection_menu/issues/3]
 
 class Rectangle {
-  double size;
-  Color color;
+  double? size;
+  Color? color;
 
   Rectangle({this.color, this.size});
 }
@@ -40,7 +40,7 @@ class ExampleApp extends StatelessWidget {
     if (data.isSearchEnabled) {
       columnChildren.add(
         Expanded(
-          flex: data.menuFlexValues.searchBar,
+          flex: data.menuFlexValues.searchBar!,
           child: data.searchBar,
         ),
       );
@@ -48,7 +48,7 @@ class ExampleApp extends StatelessWidget {
 
     columnChildren.add(
       Expanded(
-        flex: data.menuFlexValues.listView,
+        flex: data.menuFlexValues.listView!,
         child: data.listView,
       ),
     );

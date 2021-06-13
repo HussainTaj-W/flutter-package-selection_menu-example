@@ -75,7 +75,7 @@ class ExampleApp extends StatelessWidget {
 
   Widget itemBuilder(
       BuildContext context, FlatColor color, OnItemTapped onItemTapped) {
-    TextStyle textStyle = Theme.of(context).textTheme.title;
+    TextStyle textStyle = Theme.of(context).textTheme.headline6!;
 
     return Material(
       color: Colors.white,
@@ -89,7 +89,7 @@ class ExampleApp extends StatelessWidget {
             children: <Widget>[
               ClipOval(
                 child: Container(
-                  color: Color(color.hex),
+                  color: Color(color.hex!),
                   height: 30,
                   width: 30,
                 ),
@@ -99,16 +99,16 @@ class ExampleApp extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.0),
                   child: Text(
-                    color.name,
+                    color.name!,
                     style: textStyle,
                   ),
                 ),
               ),
               Text(
-                ('#' + color.hex.toRadixString(16)).toUpperCase(),
+                ('#' + color.hex!.toRadixString(16)).toUpperCase(),
                 style: textStyle.copyWith(
                   color: Colors.grey.shade600,
-                  fontSize: textStyle.fontSize * 0.75,
+                  fontSize: textStyle.fontSize! * 0.75,
                 ),
               ),
             ],
@@ -118,8 +118,8 @@ class ExampleApp extends StatelessWidget {
     );
   }
 
-  bool itemSearchMatcher(String searchString, FlatColor color) {
-    return color.name.toLowerCase().contains(searchString.trim().toLowerCase());
+  bool itemSearchMatcher(String? searchString, FlatColor color) {
+    return color.name!.toLowerCase().contains(searchString!.trim().toLowerCase());
   }
 
   void onItemSelected(FlatColor color) {

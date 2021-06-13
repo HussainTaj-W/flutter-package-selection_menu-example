@@ -15,13 +15,13 @@ import '../data/FlatColor.dart';
 class MyAnimationComponent extends AnimationComponent
     with ComponentLifeCycleMixin // To get hooks to the Menu's lifecycle
 {
-  AnimationController _animationController;
-  Animation<double> _animation;
+  AnimationController? _animationController;
+  late Animation<double> _animation;
 
   MyAnimationComponent() {
     super.builder = _builder;
   }
-  MenuState _lastState;
+  MenuState? _lastState;
   Widget _builder(AnimationComponentData data) {
     if (_animationController == null) {
       _animationController = AnimationController(
@@ -30,7 +30,7 @@ class MyAnimationComponent extends AnimationComponent
           reverseDuration: data.menuAnimationDurations.reverse);
 
       _animation = CurvedAnimation(
-        parent: _animationController,
+        parent: _animationController!,
         curve: Curves.elasticOut,
       );
 
@@ -74,7 +74,7 @@ class MyAnimationComponent extends AnimationComponent
         // AnimatedContainer(color: Colors.black,);
         //
         // For explicit animations start animation like so:
-        _animationController.forward();
+        _animationController!.forward();
         _lastState = data.menuState;
         break;
       case MenuState.Opened:
@@ -87,11 +87,13 @@ class MyAnimationComponent extends AnimationComponent
         // Just like OpeningEnd.
         //
         // you can use data.willCloseAfter(Duration); for implicit animations.
-        _animationController.reverse();
+        _animationController!.reverse();
         _lastState = data.menuState;
         break;
       case MenuState.Closed:
         // Widget is not built for this state.
+        break;
+      default:
         break;
     }
 
@@ -101,7 +103,7 @@ class MyAnimationComponent extends AnimationComponent
         child: data.child,
         constraints: data.constraints,
       ),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Transform.rotate(
           angle: 6.14 - 6.14 * _animation.value,
           child: Transform.scale(
@@ -116,7 +118,7 @@ class MyAnimationComponent extends AnimationComponent
   @override
   void dispose() {
     if (_animationController != null) {
-      _animationController.dispose();
+      _animationController!.dispose();
       _animationController = null;
     }
   }
@@ -163,18 +165,18 @@ class ExampleApp extends StatelessWidget {
 
   MenuPositionAndSize _menuSizeAndPositionBuilder(
       MenuPositionAndSizeComponentData data) {
-    double menuMidY = data.constraints.biggest.height / 2;
-    double menuMidX = data.constraints.biggest.width / 2;
+    double menuMidY = data.constraints!.biggest.height / 2;
+    double menuMidX = data.constraints!.biggest.width / 2;
 
     // The origin of the menu is top-left corner. Which matches the top-left corner
     // of the button. -menuMidY and -menuMidX offset makes the menu middle meet
     // the top-left corner of the button. We add half of the button lengths so
     // that the menu middle and button middle become the same.
-    double offsetY = -menuMidY + data.triggerPositionAndSize.size.height / 2;
-    double offsetX = -menuMidX + data.triggerPositionAndSize.size.width / 2;
+    double offsetY = -menuMidY + data.triggerPositionAndSize!.size.height / 2;
+    double offsetX = -menuMidX + data.triggerPositionAndSize!.size.width / 2;
 
     return MenuPositionAndSize(
-      constraints: BoxConstraints.tight(data.constraints.biggest),
+      constraints: BoxConstraints.tight(data.constraints!.biggest),
       // To ensure that the calculated middle stays the middle, we have to
       // fix the Size of the menu, hence new BoxConstraints are tight to the
       // biggest Size possible.
@@ -188,7 +190,7 @@ class ExampleApp extends StatelessWidget {
       width: navButtonSize,
       child: RaisedButton(
         onPressed: data.triggerMenu,
-        color: Color(data.item.hex),
+        color: Color(data.item.hex!),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(navButtonSize / 2),
         ),
@@ -203,7 +205,7 @@ class ExampleApp extends StatelessWidget {
 
   Widget itemBuilder(
       BuildContext context, FlatColor color, OnItemTapped onItemTapped) {
-    TextStyle textStyle = Theme.of(context).textTheme.title;
+    TextStyle textStyle = Theme.of(context).textTheme.title!;
 
     return Container(
       constraints: BoxConstraints.tight(Size(itemSize, itemSize)),
@@ -212,7 +214,7 @@ class ExampleApp extends StatelessWidget {
         alignment: Alignment.center,
         children: <Widget>[
           Material(
-            color: Color(color.hex),
+            color: Color(color.hex!),
             child: InkWell(
               onTap: onItemTapped,
             ),
@@ -223,7 +225,7 @@ class ExampleApp extends StatelessWidget {
               onItemTapped();
             },
             child: Text(
-              color.name,
+              color.name!,
               style: textStyle.copyWith(
                 color: Colors.white,
               ),
@@ -254,7 +256,7 @@ class ExampleApp extends StatelessWidget {
   }
 
   bool itemSearchMatcher(String searchString, FlatColor color) {
-    return color.name.toLowerCase().contains(searchString.trim().toLowerCase());
+    return color.name!.toLowerCase().contains(searchString.trim().toLowerCase());
   }
 
   void onItemSelected(FlatColor color) {
@@ -271,8 +273,8 @@ class MyListViewComponent extends ListViewComponent {
   int _currentIndex = 0;
 
   MyListViewComponent({
-    @required this.itemSize,
-    @required this.navigationButtonSize,
+    required this.itemSize,
+    required this.navigationButtonSize,
   }) : assert(itemSize != null, "Size should be provided.") {
     super.builder = _builder;
     _scrollController.addListener(() {

@@ -5,8 +5,8 @@ import 'package:selection_menu/selection_menu.dart';
 /// (Issue Link)[https://github.com/HussainTaj-W/flutter-package-selection_menu/issues/1]
 
 class Rectangle {
-  double size;
-  Color color;
+  double? size;
+  Color? color;
 
   Rectangle({this.color, this.size});
 }

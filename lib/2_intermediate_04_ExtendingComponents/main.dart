@@ -18,7 +18,7 @@ class CustomSearchingIndicatorComponent
     extends SearchingIndicatorComponent // A required mixin if you want to hook into the Menu's life cycle
     with
         ComponentLifeCycleMixin {
-  AnimationController _animationController;
+  AnimationController? _animationController;
 
   CustomSearchingIndicatorComponent() {
     super.builder = _builder;
@@ -29,10 +29,10 @@ class CustomSearchingIndicatorComponent
       vsync: data.tickerProvider,
       duration: Duration(seconds: 1),
     );
-    _animationController.repeat();
+    _animationController!.repeat();
 
     return RotationTransition(
-      turns: Tween(begin: 0.0, end: 1.0).animate(_animationController),
+      turns: Tween(begin: 0.0, end: 1.0).animate(_animationController!),
       child: AspectRatio(
         aspectRatio: 1.0,
         child: Icon(Icons.search),
@@ -43,7 +43,7 @@ class CustomSearchingIndicatorComponent
   @override
   void dispose() {
     if (_animationController != null) {
-      _animationController.dispose();
+      _animationController!.dispose();
       _animationController = null;
     }
   }
@@ -84,19 +84,29 @@ class ExampleApp extends StatelessWidget {
   //region From Previous Example
 
   static Widget _triggerBuilder(TriggerComponentData data) {
-    return RaisedButton(
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        primary: Colors.white,
+      ),
       onPressed: data.triggerMenu,
-      color: Colors.white,
-      child: Text("Select Color"),
+      // color: Colors.white,
+      child: Text(
+        "Select Color",
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
     );
   }
 
   static Widget _triggerFromItemBuilder(TriggerFromItemComponentData data) {
-    return RaisedButton(
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        primary: Color(data.item.hex),
+      ),
       onPressed: data.triggerMenu,
-      color: Color(data.item.hex),
       child: Text(
         data.item.name,
         style: TextStyle(
@@ -108,7 +118,7 @@ class ExampleApp extends StatelessWidget {
 
   Widget itemBuilder(
       BuildContext context, FlatColor color, OnItemTapped onItemTapped) {
-    TextStyle textStyle = Theme.of(context).textTheme.title;
+    TextStyle textStyle = Theme.of(context).textTheme.title!;
 
     return Material(
       color: Colors.white,
@@ -122,7 +132,7 @@ class ExampleApp extends StatelessWidget {
             children: <Widget>[
               ClipOval(
                 child: Container(
-                  color: Color(color.hex),
+                  color: Color(color.hex!),
                   height: 30,
                   width: 30,
                 ),
@@ -132,16 +142,16 @@ class ExampleApp extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.0),
                   child: Text(
-                    color.name,
+                    color.name!,
                     style: textStyle,
                   ),
                 ),
               ),
               Text(
-                ('#' + color.hex.toRadixString(16)).toUpperCase(),
+                ('#' + color.hex!.toRadixString(16)).toUpperCase(),
                 style: textStyle.copyWith(
                   color: Colors.grey.shade600,
-                  fontSize: textStyle.fontSize * 0.75,
+                  fontSize: textStyle.fontSize! * 0.75,
                 ),
               ),
             ],
@@ -151,8 +161,8 @@ class ExampleApp extends StatelessWidget {
     );
   }
 
-  bool itemSearchMatcher(String searchString, FlatColor color) {
-    return color.name.toLowerCase().contains(searchString.trim().toLowerCase());
+  bool itemSearchMatcher(String? searchString, FlatColor color) {
+    return color.name!.toLowerCase().contains(searchString!.trim().toLowerCase());
   }
 
   void onItemSelected(FlatColor color) {
