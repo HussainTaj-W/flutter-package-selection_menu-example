@@ -116,7 +116,7 @@ class CircularWindowSearchFieldComponent extends SearchFieldComponent {
       expands: false,
       maxLines: 1,
       textAlignVertical: TextAlignVertical.bottom,
-      style: Theme.of(data.context).textTheme.body1!.copyWith(),
+      style: Theme.of(data.context).textTheme.bodyText1!.copyWith(),
       decoration: InputDecoration(
         border: InputBorder.none,
         hintText: "Search...",
@@ -135,7 +135,7 @@ class CircularWindowSearchingIndicatorComponent
 
   Widget _builder(SearchingIndicatorComponentData data) {
     double size = Theme.of(data.context).iconTheme.size ??
-        Theme.of(data.context).textTheme.body1!.fontSize ??
+        Theme.of(data.context).textTheme.bodyText1!.fontSize ??
         15;
     return Center(
       child: SizedBox(

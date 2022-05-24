@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  selection_menu: ^1.0.0
+  selection_menu: ^2.0.0
 
   cupertino_icons: ^1.0.3
 

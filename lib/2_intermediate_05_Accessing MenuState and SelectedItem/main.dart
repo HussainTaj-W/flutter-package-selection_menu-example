@@ -51,7 +51,7 @@ class ExampleApp extends StatelessWidget {
       children: <Widget>[
         Text(
           "Currently Selected: ",
-          style: Theme.of(data.context).textTheme.body1!.copyWith(fontSize: 10),
+          style: Theme.of(data.context).textTheme.bodyText1!.copyWith(fontSize: 10),
         ),
         ClipOval(
             child: SizedBox(
@@ -106,7 +106,7 @@ class ExampleApp extends StatelessWidget {
 
   Widget itemBuilder(
       BuildContext context, FlatColor color, OnItemTapped onItemTapped) {
-    TextStyle textStyle = Theme.of(context).textTheme.title!;
+    TextStyle textStyle = Theme.of(context).textTheme.bodyText1!;
 
     return Container(
       child: InkWell(

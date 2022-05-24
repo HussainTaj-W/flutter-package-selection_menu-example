@@ -205,12 +205,12 @@ class ExampleApp extends StatelessWidget {
 
   Widget itemBuilder(
       BuildContext context, FlatColor color, OnItemTapped onItemTapped) {
-    TextStyle textStyle = Theme.of(context).textTheme.title!;
+    TextStyle textStyle = Theme.of(context).textTheme.bodyText1!;
 
     return Container(
       constraints: BoxConstraints.tight(Size(itemSize, itemSize)),
       child: Stack(
-        overflow: Overflow.clip,
+        clipBehavior: Clip.hardEdge,
         alignment: Alignment.center,
         children: <Widget>[
           Material(
